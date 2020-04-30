@@ -54,7 +54,6 @@ class Carousel{
                 self.picture_wrapper.removeChild(self.picture_wrapper.lastChild);
             }
             document.removeEventListener('keydown', keypress);
-            //document.removeEventListener('keydown', eventCloseKey);
 
             self.picture_wrapper.style.display = "none";
             self.picture_items.style.display = "flex";
@@ -155,7 +154,7 @@ class Carousel{
             from.style.width = beginWidth + (deltaWidth*func(timeFraction))+"px";
 
             self.picture_container.style.opacity = timeFraction;
-            
+
             if(timeFraction < 1) {
                 self.animation = requestAnimationFrame(animate);
             }else{

@@ -1,10 +1,7 @@
-class Carousel{
-
-    images = null;
-    body = document.querySelector('body');
-    err = [];
+class Carousel {
     
     constructor(setting){
+        this.body = document.querySelector('body');
         if (typeof setting == 'object'){
             this.el = setting.el;
             if(setting.el === undefined){
@@ -118,7 +115,12 @@ class Carousel{
 
                 self.picture_wrapper.appendChild(copy_image_animate);
                 self.picture_items.appendChild(copy_image);
-                self.animate(copy_image_animate, copy_image, self.quad, 250);
+                
+                copy_image.onload = function(){
+                    console.dir(copy_image);
+                    console.log(copy_image.offsetWidth, copy_image.naturalWidth);
+                    self.animate(copy_image_animate, copy_image, self.quad, 250);
+                }
 
                 document.addEventListener('keydown', keypress);
             })

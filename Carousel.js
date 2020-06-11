@@ -116,9 +116,7 @@ class Carousel {
                 self.picture_wrapper.appendChild(copy_image_animate);
                 self.picture_items.appendChild(copy_image);
                 
-                copy_image.onload = function(){
-                    console.dir(copy_image);
-                    console.log(copy_image.offsetWidth, copy_image.naturalWidth);
+                copy_image_animate.onload = function(){
                     self.animate(copy_image_animate, copy_image, self.quad, 250);
                 }
 
